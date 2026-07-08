@@ -63,6 +63,7 @@ def translator_node(state: pipeline_state) -> dict:
     response = llm.invoke(prompt)
     return {"final_output": response.content.strip()}
 
+#we just made functions , now we will convert them into nodes and add them to the graph.
 graph = StateGraph(pipeline_state, name="Text Editing and Translation Pipeline")
 graph.add_node("editor",editor_node)
 graph.add_node("scriptwriter",scriptwriter_node)
